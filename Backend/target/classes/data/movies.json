@@ -1,0 +1,43 @@
+{
+  "movies": [
+    {
+      "id": 3,
+      "title": "Naruto: Shippuden",
+      "movieDescription": "It has been two and a half years since Naruto Uzumaki left Konohagakure, the Hidden Leaf Village, for intense training following events which fueled his desire to be stronger. Now Akatsuki, the mysterious organization of elite rogue ninja, is closing in on their grand plan which may threaten the safety of the entire shinobi world. Although Naruto is older and sinister events loom on the horizon, he has changed little in personality—still rambunctious and childish—though he is now far more confident and possesses an even greater determination to protect his friends and home. Come whatever may, Naruto will carry on with the fight for what is important to him, even at the expense of his own body, in the continuation of the saga about the boy who wishes to become Hokage.",
+      "Quality": "Quality.HD",
+      "Genre": "Genre.ANIME",
+      "duration": "23mins",
+      "releaseDate": "February 17 2007",
+      "poster": "front/APS/src/assets/Naruto Shippuden.png",
+      "avrRating": 0,
+      "userIds": "1",
+      "viewCount": 1
+    },
+    {
+      "id": 4,
+      "title": "Ready Player One",
+      "movieDescription": "When the creator of a virtual reality world called OASIS dies, he leaves a challenge behind. Hidden inside the virtual world is an Easter Egg, which grants a worthy person full control over OASIS.",
+      "Quality": "Quality.HD",
+      "Genre": "Genre.ACTION",
+      "duration": "2hrs 30mins",
+      "releaseDate": "March 28, 2018",
+      "poster": "front/APS/src/assets/RPO.png",
+      "avrRating": 0,
+      "userIds": "1",
+      "viewCount": 1
+    },
+    {
+      "id": 5,
+      "title": "Alita: Battle Angel",
+      "movieDescription": "Alita, a battle cyborg, is revived by Ido, a doctor, who realises that she actually has the soul of a teenager. Alita then sets out to learn about her past and find her true identity.",
+      "Quality": "Quality.HD",
+      "Genre": "Genre.ACTION",
+      "duration": "2hrs 30mins",
+      "releaseDate": "February 15, 2019",
+      "poster": "front/APS/src/assets/Alita.png",
+      "avrRating": 0,
+      "userIds": "1",
+      "viewCount": 1
+    }
+  ]
+}
