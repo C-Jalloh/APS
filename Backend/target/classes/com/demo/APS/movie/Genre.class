@@ -1,0 +1,14 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+package com.demo.APS.movie;
+
+public enum Genre {
+   HORROR,
+   ACTION,
+   ANIME,
+   ROMANCE,
+   DRAMA,
+   COMEDY;
+
+   private Genre() {
+   }
+}
