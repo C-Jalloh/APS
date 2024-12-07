@@ -7,7 +7,7 @@ import org.springframework.util.Assert;
 import java.util.List;
 import java.util.Optional;
 
-@Repository("jdbcmovieRepository")
+@Repository("jdbcMovieRepository")
 public class JdbcMovieRepository implements MovieRepository {
 
     private final JdbcClient jdbcClient;
@@ -17,50 +17,76 @@ public class JdbcMovieRepository implements MovieRepository {
     }
 
     public List<Movie> findAll() {
-        return jdbcClient.sql("select * from movie")
+        return jdbcClient.sql("SELECT * FROM movie")
                 .query(Movie.class)
                 .list();
     }
 
     public Optional<Movie> findById(Integer id) {
-        return jdbcClient.sql("SELECT id,title,movieDescription,quality,genre,duration,releaseDate,poster,avrRating,userIds,viewCount FROM Movie WHERE id = :id" )
-                .param("id", id)
+        return jdbcClient.sql("SELECT * FROM movie WHERE id = ?")
+                .param(id)
                 .query(Movie.class)
                 .optional();
     }
 
     public void create(Movie movie) {
-        var updated = jdbcClient.sql("INSERT INTO Movie(id,title,movieDescription,quality,genre,duration,releaseDate,poster,avrRating,userIds,viewCount) values(?,?,?,?,?,?,?,?,?,?,?)")
-                .params(List.of(movie.id(),movie.title(),movie.movieDescription(),movie.quality(),movie.genre(),movie.duration(),movie.releaseDate(),movie.poster(),movie.avrRating(),movie.userIds(),movie.viewCount().toString()))
+        int updated = jdbcClient.sql(
+                        "INSERT INTO movie (id, title, movieDescription, quality, genre, duration, releaseDate, poster, avrRating, userIds, viewCount) " +
+                                "VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)")
+                .params(
+                        movie.getId(),
+                        movie.getTitle(),
+                        movie.getMovieDescription(),
+                        movie.getQuality().name(),
+                        movie.getGenre().name(),
+                        movie.getDuration(),
+                        movie.getReleaseDate(),
+                        movie.getPoster(),
+                        movie.getAvrRating(),
+                        movie.getUserIds(),
+                        movie.getViewCount()
+                )
                 .update();
 
-        Assert.state(updated == 1, "Failed to create movie " + movie.title());
+        Assert.state(updated == 1, "Failed to create movie " + movie.getTitle());
     }
 
     public void update(Movie movie, Integer id) {
-        var updated = jdbcClient.sql("update movie set title = ? where id = ?")
-                .params(List.of(movie.title().toString(), id))
+        int updated = jdbcClient.sql(
+                        "UPDATE movie SET title = ?, movieDescription = ?, quality = ?, genre = ?, duration = ?, releaseDate = ?, poster = ?, avrRating = ?, userIds = ?, viewCount = ? WHERE id = ?")
+                .params(
+                        movie.getTitle(),
+                        movie.getMovieDescription(),
+                        movie.getQuality().name(),
+                        movie.getGenre().name(),
+                        movie.getDuration(),
+                        movie.getReleaseDate(),
+                        movie.getPoster(),
+                        movie.getAvrRating(),
+                        movie.getUserIds(),
+                        movie.getViewCount(),
+                        id
+                )
                 .update();
 
-        Assert.state(updated == 1, "Failed to update movie " + movie.title());
+        Assert.state(updated == 1, "Failed to update movie " + movie.getTitle());
     }
 
     public void delete(Integer id) {
-        var updated = jdbcClient.sql("delete from movie where id = :id")
-                .param("id", id)
+        int updated = jdbcClient.sql("DELETE FROM movie WHERE id = ?")
+                .param(id)
                 .update();
 
-        Assert.state(updated == 1, "Failed to delete movie " + id);
+        Assert.state(updated == 1, "Failed to delete movie with id " + id);
     }
 
     public int count() {
-        return jdbcClient.sql("select * from movie").query().listOfRows().size();
+        return jdbcClient.sql("SELECT COUNT(*) FROM movie")
+                .query(Integer.class)
+                .single();
     }
 
     public void saveAll(List<Movie> movies) {
-        movies.stream().forEach(this::create);
+        movies.forEach(this::create);
     }
-
-
-
 }

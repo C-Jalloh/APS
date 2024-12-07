@@ -6,5 +6,6 @@ public enum Genre {
     ANIME,
     ROMANCE,
     DRAMA,
-    COMEDY
+    COMEDY,
+    THRILLER
 }

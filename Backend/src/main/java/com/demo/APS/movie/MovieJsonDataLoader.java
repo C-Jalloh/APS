@@ -1,3 +1,4 @@
+
 package com.demo.APS.movie;
 
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -18,24 +19,23 @@ public class MovieJsonDataLoader implements CommandLineRunner {
     private final ObjectMapper objectMapper;
     private final MovieRepository movieRepository;
 
-    public MovieJsonDataLoader(ObjectMapper objectMapper, @Qualifier("jdbcmovieRepository") MovieRepository movieRepository) {
+    public MovieJsonDataLoader(ObjectMapper objectMapper, @Qualifier("jdbcMovieRepository") MovieRepository movieRepository) {
         this.objectMapper = objectMapper;
         this.movieRepository = movieRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        if(movieRepository.count() == 0) {
+        if (movieRepository.count() == 0) {
             try (InputStream inputStream = TypeReference.class.getResourceAsStream("/data/movies.json")) {
                 Movies allMovies = objectMapper.readValue(inputStream, Movies.class);
-                log.info("Reading {} movies from JSON data and saving to in-memory collection.", allMovies.movies().size());
+                log.info("Reading {} movies from JSON data and saving to database.", allMovies.movies().size());
                 movieRepository.saveAll(allMovies.movies());
             } catch (IOException e) {
                 throw new RuntimeException("Failed to read JSON data", e);
             }
         } else {
-            log.info("Not loading Movies from JSON data because the collection contains data.");
+            log.info("Movies already exist in the database. Skipping JSON data loading.");
         }
     }
-
 }

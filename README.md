@@ -1,3 +1,3 @@
 # APS
 
-this is a [roject for school 
+this is a project for school

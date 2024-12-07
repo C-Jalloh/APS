@@ -2,9 +2,27 @@ package com.demo.APS.user;
 
 public record User(
         Integer id,
-        String name,
+        String nickname,
         String username,
         String email,
-        String password
+        String userPassword
 ) {
+
+        public int getId() {
+                return id;
+        }
+
+        public String getNickname() {
+                return nickname;
+        }
+
+        public String getUsername() {
+                return username;
+        }
+
+        public String getEmail() {
+                return email;
+        }
+
+        
 }
