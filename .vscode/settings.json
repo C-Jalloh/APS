@@ -1,10 +1,14 @@
 {
     "java.compile.nullAnalysis.mode": "automatic",
     "cSpell.words": [
+        "cjalloh",
         "jdbc",
         "pinia",
+        "releasedate",
         "runnerz",
+        "socialmedia",
         "springframework",
-        "Vetur"
+        "Vetur",
+        "watchlist"
     ]
 }

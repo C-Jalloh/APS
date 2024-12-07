@@ -4,7 +4,7 @@
 
 <template>
   <div class="greetings">
-    <h1 class="green">moviening is good</h1>
+    <h1 class="green">running is good</h1>
     <h3>
     This is where the information about movies is
     </h3>

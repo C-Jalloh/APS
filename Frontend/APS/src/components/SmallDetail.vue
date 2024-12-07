@@ -1,0 +1,234 @@
+<template>
+
+<body>
+    <div class="main-container">
+        <div class="container">
+            <div class="vertical">
+                <div class="title">
+                    <p class="p-title">Avengers Endgame</p>
+                </div>
+                <div class="rank">
+                    <p>01</p>
+                </div>
+            </div>
+            <div id="box" class="box">
+                <button class="hidden" type="button">Rate</button>
+                <div class="details">
+                    <div class="releasedate" style="background-color: rgba(255, 255, 255, 0.5);">
+                        <p>July, 2023</p>
+                    </div>
+                    <div class="rating" style="background-color: rgba(255, 255, 255, 0.5);">
+                        <p>this is a rating</p>
+                    </div>
+                    <div class="outer-container" style="background-color: rgba(255, 255, 255, 0.5);">
+                        <div class="genre">
+                            <p style="background-color: rgba(255, 255, 255, 0.5);">TV</p>
+                        </div>
+                        <div class="duration">
+                            <p>2hrs</p>
+                        </div>
+                        <div class="quality">
+                            <p>HD</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</template>
+
+<script lang="ts">
+export default {
+
+}
+</script>
+
+<style>
+    body {
+        height: 100vh;
+        width: 100vw;
+
+    }
+
+    .main-container {
+        height: 100%;
+        width: 100%;
+        background-color: gray;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .container {
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: row;
+        background-color: aliceblue;
+        height: 60vh;
+        width: 40vw;
+        border-radius: 5%;
+
+
+    }
+
+    /* .hidden:hover > .box:not(:hover) {*/
+        /* background-color: blue; */
+        /* background: 0.7; */
+        /* filter: blur(2px); */
+    /* } */
+
+    .box {
+        height: 100%;
+        width: 30vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-size: 3em;
+        text-decoration: none;
+        /* border: 2px solid rgb(230, 181, 20); */
+        background-image: url("../assets/running1.png");
+        background-repeat: no-repeat;
+        object-fit: cover;
+        background-position-x: center;
+        background-position-y: center;
+        /* overflow: hidden; */
+
+    }
+
+    .vertical {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        /* border: 2px solid rgb(26, 54, 214); */
+        height: 60vh;
+        width: 10vw;
+    }
+
+    .title {
+        /* border: 2px solid rgb(97, 247, 10); */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%;
+        width: 100%;
+
+    }
+
+    .p-title {
+        white-space: nowrap;
+        rotate: 270deg;
+        font-size: 40px;
+    }
+
+    .hidden {
+        opacity: 0;
+        height: 5vh;
+        width: 7vw;
+        border: none;
+        color: rgb(4, 8, 0);
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-weight: 800;
+        font-size: large;
+        border-radius: 10%;
+        background-color: rgb(77, 133, 182);
+        margin-top: 200px;
+
+    }
+
+    .box:hover .hidden{
+        opacity: 1;
+    }
+
+    .rank {
+        border-top: 2px solid black;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 20%;
+        font-size: 40px;
+        font-weight: 600;
+
+    }
+
+    .details {
+        display: flex;
+        flex-direction: column;
+        /* border: 2px solid rgb(248, 244, 5); */
+        justify-content: center;
+        /* align-items: center; */
+        height: 15vh;
+        width: 100%;
+        /* overflow: hidden; */
+        margin-top: 165px;
+        margin-bottom: 0%;
+        padding-left: 20px;
+    }
+
+    .releasedate {
+        /* border: 1px solid rgb(245, 6, 245); */
+        height: 5vh;
+        width: 30%;
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+    }
+
+    .rating {
+        /* border: 1px solid rgb(250, 8, 8); */
+        height: 5vh;
+        width: 30%;
+        display: flex;
+        align-items: center;
+        font-size: 25px;
+    }
+
+    .outer-container {
+        display: flex;
+        flex-direction: row;
+        /* border: 1px solid rgb(9, 91, 241); */
+        height: 5vh;
+        width: 30%;
+
+
+    }
+
+    .genre {
+        /* border: 1px solid black; */
+        font-size: 20px;
+        width: 3vw;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+
+    }
+
+    .duration {
+        /* border: 1px solid black; */
+        font-size: 20px;
+        width: 3vw;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+
+
+    }
+
+    .quality {
+        /* border: 1px solid black; */
+        font-size: 20px;
+        width: 3vw;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+
+
+    }
+</style>
